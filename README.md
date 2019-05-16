@@ -16,19 +16,19 @@ Every nodejs service exposes by default port **_9229_** to be able to connect to
 Build microsevice system.
 
 ```
-    docker-compose -f test.yml up --build
+    docker-compose --build
 ```
 
 Take down microservices
 
 ```
-    docker-compose -f test.yml down
+    docker-compose down
 ```
 
 Bring back microservices
 
 ```
-    docker-compose -f test.yml down
+    docker-compose down
 ```
 
 **_This project is still under construction with the aim to make it production ready. Feel free to build make a pull request_**
