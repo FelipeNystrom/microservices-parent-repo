@@ -31,7 +31,7 @@ Bring back microservices
     docker-compose down
 ```
 
-**_This project is still under construction with the aim to make it production ready. Feel free to build make a pull request_**
+**_This project is still under construction with the aim to make it production ready. Feel free to make a pull request_**
 
 ### TODO:
 
