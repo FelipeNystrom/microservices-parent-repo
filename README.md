@@ -32,3 +32,8 @@ Bring back microservices
 ```
 
 **_This project is still under construction with the aim to make it production ready. Feel free to build make a pull request_**
+
+### TODO:
+
+- Monitor service with heartbeat checks on every service.
+- Wait-for db and kafka complete startup functionality
