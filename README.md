@@ -35,5 +35,6 @@ Bring back microservices
 
 ### TODO:
 
-- Monitor service with heartbeat checks on every service.
-- Wait-for db and kafka complete startup functionality
+- [ ] Migrate to Kubernetes
+- [ ] Monitor service with heartbeat checks on every service.
+- [ ] Wait-for db and kafka complete startup functionality

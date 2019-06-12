@@ -4,16 +4,16 @@ services:
   reverse-proxy: 
     restart: always
     build:
-      dockerfile: Dockerfile.dev
-      context: ./nginx
+      dockerfile: Dockerfile
+      context: ./services/nginx
     ports:
       - '80:80'
   db:
     image: postgres:latest
     volumes:
       - ~/.docker/volumes/postgres:/var/lib/postgresql/data
-      - ./auth-user-service/user_service.sql:/docker-entrypoint-initdb.d/user_service.sql
-      - ./post-service/post_service.sql:/docker-entrypoint-initdb.d/post_service.sql
+      - ./services/auth-user-service/user_service.sql:/docker-entrypoint-initdb.d/user_service.sql
+      - ./services/post-service/post_service.sql:/docker-entrypoint-initdb.d/post_service.sql
     ports:
       - 5432:5432
   zookeeper:
@@ -40,7 +40,7 @@ services:
   api-gateway:
     build:
       dockerfile: Dockerfile.debug
-      context: ./api-gateway
+      context: ./services/api-gateway
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /api-gateway/node_modules
@@ -54,7 +54,7 @@ services:
   auth-service:
       build:
         dockerfile: Dockerfile.debug
-        context: ./auth-user-service
+        context: ./services/auth-user-service
         labels:
           - "serviceRoute=/auth"
           - "serviceName=auth-service"
@@ -70,7 +70,7 @@ services:
   post-service:
     build:
       dockerfile: Dockerfile.debug
-      context: ./post-service
+      context: ./services/post-service
       labels:
           - "serviceRoute=/posts"
           - "serviceName=post-service"
@@ -86,7 +86,7 @@ services:
   upload-service:
       build:
         dockerfile: Dockerfile.debug
-        context: ./image-and-video-API
+        context: ./services/image-and-video-API
         labels:
           - "serviceRoute=/upload"
           - "serviceName=upload-service"
