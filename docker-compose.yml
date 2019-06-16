@@ -56,7 +56,7 @@ services:
         dockerfile: Dockerfile.debug
         context: ./services/auth-user-service
         labels:
-          - "serviceRoute=/auth"
+          - "serviceRoute=auth"
           - "serviceName=auth-service"
       volumes:
         - /auth-user-service/node_modules
@@ -72,7 +72,7 @@ services:
       dockerfile: Dockerfile.debug
       context: ./services/post-service
       labels:
-          - "serviceRoute=/posts"
+          - "serviceRoute=posts"
           - "serviceName=post-service"
     volumes:
       - /post-service/node_modules
@@ -88,7 +88,7 @@ services:
         dockerfile: Dockerfile.debug
         context: ./services/image-and-video-API
         labels:
-          - "serviceRoute=/upload"
+          - "serviceRoute=upload"
           - "serviceName=upload-service"
       volumes:
         - /image-video-api/node_modules

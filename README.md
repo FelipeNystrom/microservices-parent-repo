@@ -13,6 +13,18 @@ The kafka setup is for learning purpose and is as of now not production ready. T
 
 Every nodejs service exposes by default port **_9229_** to be able to connect to node inspector.
 
+Generate key pair and put in .env file
+
+```
+# Generate 4096 bit Private key
+$ openssl genrsa -out myprivate.pem 4096
+```
+
+```
+# Separate the public part from the Private key file.
+$ openssl rsa -in myprivate.pem -pubout > mypublic.pem
+```
+
 Build microsevice system.
 
 ```

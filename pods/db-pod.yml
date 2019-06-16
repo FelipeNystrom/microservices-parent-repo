@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-pod
+  labels:
+    app: postgres-db
+spec:
+  containers:
+  - name: postgres
+    image: postgres
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "200m"
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+    ports:
+      - name: db-port
+        containerPort: 5432
+    volumeMounts:
+      - name: config-db-volume
+        mountPath: /docker-entrypoint-initdb.d/
+  volumes:
+    - name: config-db-volume
+      configMap:
+        name: db-config
+        items:
+        - key: post_service.sql
+          path: post_service.sql
+        - key: user_service.sql
+          path: user_service.sql
+

@@ -1,3 +1,6 @@
 test.yml
-my-postgres.conf
-services/
+*.conf
+keypair/
+*.sql
+docker-compose.yml
+key-secrets.yml
