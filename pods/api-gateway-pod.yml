@@ -16,7 +16,8 @@ spec:
           secretKeyRef:
             name: key-secrets
             key: public
-    
+    command: ['node']
+    args: ['--inspect', 'server.js']
     resources:
       limits:
         memory: "128Mi"
