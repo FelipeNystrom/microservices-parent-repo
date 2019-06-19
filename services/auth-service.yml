@@ -6,6 +6,6 @@ spec:
   selector:
     app: auth
   ports:
-  - port: 30001
+  - port: 3002
     targetPort: auth-port
     protocol: TCP
