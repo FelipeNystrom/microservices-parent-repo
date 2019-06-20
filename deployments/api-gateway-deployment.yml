@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-deployment
+  labels:
+    app: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      component: api-gateway
+  template:
+    metadata:
+      labels:
+        component: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: shakka/api-gateway
+        env:
+          - name: PORT
+            value: '3001'
+          - name: PUBLIC_KEY
+            valueFrom:
+              secretKeyRef:
+                name: key-secrets
+                key: public
+        command: ['node']
+        args: ['--inspect', 'server.js']
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+          - name: gateway-port 
+            containerPort: 3001
+        volumeMounts:
+          - mountPath: /var/run/docker.sock
+            name: docker-sock-volume
+      volumes:
+      - name: docker-sock-volume
+        hostPath:
+          path: /var/run/docker.sock
+          type: File

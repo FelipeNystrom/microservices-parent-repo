@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upload-deployment
+  labels:
+    app: upload
+    serviceRoute: upload
+    serviceName: upload-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      component: upload
+  template:
+    metadata:
+      labels:
+        component: upload
+        serviceRoute: upload
+        serviceName: upload-service
+    spec:
+     containers:
+     - name: upload-service
+       image: shakka/upload-service
+       env:
+         - name: PORT
+           value: '3000'
+       resources:
+         requests:
+           memory: "500Mi"
+           cpu: "100m"
+         limits:
+           memory: "500Mi"
+           cpu: "300m"
+       ports:
+         - name: upload-port 
+           containerPort: 3000
+
+ 

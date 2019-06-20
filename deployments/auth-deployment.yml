@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+  labels:
+    app: auth
+    serviceRoute: auth
+    serviceName: auth-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      component: auth
+  template:
+    metadata:
+      labels:
+        component: auth
+        serviceRoute: auth
+        serviceName: auth-service
+    spec:
+      containers:
+      - name: auth-service
+        image: shakka/auth-user-service
+        env:
+          - name: PORT
+            value: '3001'
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "100m"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"
+        ports:
+          - name: auth-port 
+            containerPort: 3001
+
+ 
