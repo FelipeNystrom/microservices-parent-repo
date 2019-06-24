@@ -3,4 +3,4 @@ test.yml
 keypair/
 *.sql
 docker-compose.yml
-key-secrets.yml
+resources/secrets/
