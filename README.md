@@ -27,4 +27,8 @@ $ openssl rsa -in myprivate.pem -pubout > mypublic.pem
 
 I'm using the [nginx ingress controller](https://github.com/kubernetes/ingress-nginx). Read the deployment docu [here](https://kubernetes.github.io/ingress-nginx/deploy/) for setup instructions.
 
-To setup the ingress controller run the command kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml.
+To setup the ingress controller run the command
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
+```
