@@ -7,29 +7,9 @@ This is the parent repo for a small microservice project. It consists of four sm
 - [post service](https://github.com/FelipeNystrom/post-service)
 - [image upload service](https://github.com/FelipeNystrom/image-and-video-API)
 
-Every service is containerized with docker and is handled through docker compose. The whole system further consists of a postgres db service, for interservice communication a kafka messagebus service togheter with zookeeper for orchestration of future kafka instances is in place.
+Every service is containerized through docker. Except the four services mentioned above this system further consists of a postgres db and a a kafka messagebus service for interservice communication togheter with zookeeper for orchestration of kafka brokers.
 
-The kafka setup is for learning purpose and is as of now not production ready. The goal however is to take this whole system and make it ready for production. A nginx reverse proxy sits in front of everything and pushes incoming requests to the api gateway.
-
-Every nodejs service exposes by default port **_9229_** to be able to connect to node inspector.
-
-Build microsevice system.
-
-```
-    docker-compose --build
-```
-
-Take down microservices
-
-```
-    docker-compose down
-```
-
-Bring back microservices
-
-```
-    docker-compose down
-```
+You can find the diffrent implementations in diffrent branches _as of now it consists of a kubernetes branch and a docker compose branch_.
 
 **_This project is still under construction with the aim to make it production ready. Feel free to make a pull request_**
 

@@ -1,5 +1,6 @@
 test.yml
 my-postgres.conf
 services/
-resources/
+resources
 keypair/
+test-pods
