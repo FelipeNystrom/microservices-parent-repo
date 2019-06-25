@@ -4,3 +4,4 @@ keypair/
 *.sql
 docker-compose.yml
 resources/secrets/
+test-pods/

@@ -7,7 +7,9 @@ This is the parent repo for a small microservice project. It consists of four sm
 - [post service](https://github.com/FelipeNystrom/post-service)
 - [image upload service](https://github.com/FelipeNystrom/image-and-video-API)
 
-_Kubernetes migration_
+## Kubernetes migration
+
+**_Notice that this is a test setup for minikube_**
 
 The whole system consists of a postgres db service, for interservice communication a kafka messagebus service together with zookeeper for orchestration of future kafka instances is in place.
 
@@ -31,4 +33,24 @@ To setup the ingress controller run the command
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
+```
+
+I use rook-ceph for storage. To set this up use the following commands in top-down order:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/common.yaml
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/operator.yaml
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/cluster-test.yaml
+```
+
+To setup a storage class in a test environment run the command:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/storageclass-test.yaml
 ```
