@@ -74,7 +74,7 @@ spec:
         terminationMessagePolicy: File
         volumeMounts:
         - mountPath: /opt/kafka/data
-          name: datadir
+          name: kafka-datadir
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -84,7 +84,7 @@ spec:
     type: OnDelete
   volumeClaimTemplates:
   - metadata:
-      name: datadir
+      name: kafka-datadir
     spec:
       accessModes:
       - ReadWriteOnce
