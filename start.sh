@@ -1,8 +1,8 @@
-kubectl apply -f resources
-
 kubectl apply -f resources/secrets
 
 kubectl create configmap db-config --from-file=./resources/user_service.sql --from-file=./resources/post_service.sql
+
+kubectl apply -f resources
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
 
