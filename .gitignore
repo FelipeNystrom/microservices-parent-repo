@@ -3,3 +3,4 @@ my-postgres.conf
 services/
 resources/
 keypair/
+test-pods
