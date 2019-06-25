@@ -19,3 +19,5 @@ kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/exam
 kubectl apply -f statefulSets
 
 kubectl apply -f services
+
+kubectl apply -f deployments
