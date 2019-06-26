@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: gateway-deployment
   labels:
-    app: gateway
+    app: api-gateway
 spec:
   replicas: 1
   selector:
@@ -25,8 +25,6 @@ spec:
               secretKeyRef:
                 name: key-secrets
                 key: public
-        command: ['node']
-        args: ['--inspect', 'server.js']
         resources:
           limits:
             memory: "128Mi"
