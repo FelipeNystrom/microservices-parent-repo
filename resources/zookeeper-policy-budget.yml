@@ -4,7 +4,6 @@ metadata:
   labels:
     app: kafka-zookeeper
   name: kafka-zookeeper
-  namespace: kafka
 spec:
   maxUnavailable: 1
   selector:

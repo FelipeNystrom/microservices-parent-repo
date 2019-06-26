@@ -4,7 +4,6 @@ metadata:
   labels:
     app: kafka
   name: kafka
-  namespace: kafka
 spec:
   podManagementPolicy: OrderedReady
   replicas: 3

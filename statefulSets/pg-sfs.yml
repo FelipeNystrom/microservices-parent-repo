@@ -1,14 +1,16 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: db-deployment
   labels:
-    app: db
+    app: postgres-db
+  name: postgres
 spec:
+  podManagementPolicy: OrderedReady
   replicas: 1
   selector:
     matchLabels: 
       component: postgres
+  serviceName: postgres
   template:
     metadata:
       labels:
