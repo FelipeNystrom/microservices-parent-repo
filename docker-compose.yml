@@ -5,15 +5,15 @@ services:
     restart: always
     build:
       dockerfile: Dockerfile
-      context: ./services/nginx
+      context: ../services/nginx
     ports:
       - '80:80'
   db:
     image: postgres:latest
     volumes:
-      - ~/.docker/volumes/postgres:/var/lib/postgresql/data
-      - ./services/auth-user-service/user_service.sql:/docker-entrypoint-initdb.d/user_service.sql
-      - ./services/post-service/post_service.sql:/docker-entrypoint-initdb.d/post_service.sql
+      # - ~/.docker/volumes/postgres:/var/lib/postgresql/data
+      - ../services/auth-user-service/user_service.sql:/docker-entrypoint-initdb.d/user_service.sql
+      - ../services/post-service/post_service.sql:/docker-entrypoint-initdb.d/post_service.sql
     ports:
       - 5432:5432
   zookeeper:
@@ -40,7 +40,7 @@ services:
   api-gateway:
     build:
       dockerfile: Dockerfile.debug
-      context: ./services/api-gateway
+      context: ../services/api-gateway
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /api-gateway/node_modules
@@ -49,12 +49,12 @@ services:
       - PORT=3001
     ports: 
       # Uncomment if you want to connect to service directly
-      # - '3000:3001'
+      - '3000:3001'
       - '9000:9229'  
   auth-service:
       build:
         dockerfile: Dockerfile.debug
-        context: ./services/auth-user-service
+        context: ../services/auth-user-service
         labels:
           - "serviceRoute=/auth"
           - "serviceName=auth-service"
@@ -63,14 +63,14 @@ services:
         - ./auth-user-service:/auth-user-service 
       ports:
          # Uncomment if you want to connect to service directly
-        # -  '3001:3000'
+        -  '3001:3000'
         -  '9001:9229'
       environment:
         - PORT=3000
   post-service:
     build:
       dockerfile: Dockerfile.debug
-      context: ./services/post-service
+      context: ../services/post-service
       labels:
           - "serviceRoute=/posts"
           - "serviceName=post-service"
@@ -81,12 +81,12 @@ services:
         - PORT=3000
     ports: 
       # Uncomment if you want to connect to service directly
-      # - '3003:3000'
+      - '3003:3000'
       - '9002:9229'
   upload-service:
       build:
         dockerfile: Dockerfile.debug
-        context: ./services/image-and-video-API
+        context: ../services/image-and-video-API
         labels:
           - "serviceRoute=/upload"
           - "serviceName=upload-service"
@@ -97,5 +97,5 @@ services:
         - PORT=3000
       ports: 
         # Uncomment if you want to connect to service directly
-        # - '3004:3000'
+        - '3004:3000'
         - '9003:9229'
