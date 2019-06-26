@@ -8,6 +8,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/mast
 
 minikube addons enable ingress 
 
+kubectl apply -f services
+
 kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/common.yaml
 
 kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/operator.yaml
@@ -17,7 +19,5 @@ kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/exam
 kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/storageclass-test.yaml
 
 kubectl apply -f statefulSets
-
-kubectl apply -f services
 
 kubectl apply -f deployments

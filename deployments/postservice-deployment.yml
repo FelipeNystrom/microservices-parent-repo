@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-deployment
+  name: post-deployment
   labels:
-    app: auth-deployment
-    serviceRoute: auth
-    serviceName: auth-service
+    app: post-deployment
+    serviceRoute: post
+    serviceName: post-service
 spec:
   replicas: 1
   selector:
     matchLabels: 
-      component: auth
+      component: post
   template:
     metadata:
       labels:
-        component: auth
-        serviceRoute: auth
-        serviceName: auth-service
+        component: post
+        serviceRoute: post
+        serviceName: post-service
     spec:
       containers:
-      - name: auth-service
-        image: shakka/auth-user-service
+      - name: post-service
+        image: shakka/post-service
         env:
           - name: PORT
             value: '3001'
-          - name: DB_URL
+          - name: DATABASE_URL
             valueFrom:
               secretKeyRef:
                 name: db-secrets
-                key: db-url
+                key: database_url
         resources:
           requests:
             memory: "100Mi"
@@ -37,7 +37,7 @@ spec:
             memory: "300Mi"
             cpu: "300m"
         ports:
-          - name: auth-port 
+          - name: post-port 
             containerPort: 3001
 
  
