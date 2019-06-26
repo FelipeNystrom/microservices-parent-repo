@@ -8,7 +8,7 @@ services:
       context: ../services/nginx
     ports:
       - '80:80'
-  db:
+  db-service:
     image: postgres:latest
     volumes:
       # - ~/.docker/volumes/postgres:/var/lib/postgresql/data
@@ -44,7 +44,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /api-gateway/node_modules
-      - ./api-gateway:/api-gateway
+      - ../services/api-gateway:/api-gateway
     environment:
       - PORT=3001
     ports: 
@@ -60,7 +60,7 @@ services:
           - "serviceName=auth-service"
       volumes:
         - /auth-user-service/node_modules
-        - ./auth-user-service:/auth-user-service 
+        - ../services/auth-user-service:/auth-user-service 
       ports:
          # Uncomment if you want to connect to service directly
         -  '3001:3000'
@@ -76,7 +76,7 @@ services:
           - "serviceName=post-service"
     volumes:
       - /post-service/node_modules
-      - ./post-service:/post-service
+      - ../services/post-service:/post-service
     environment:
         - PORT=3000
     ports: 
@@ -92,7 +92,7 @@ services:
           - "serviceName=upload-service"
       volumes:
         - /image-video-api/node_modules
-        - ./image-and-video-API:/image-video-api
+        - ../services/image-and-video-API:/image-video-api
       environment:
         - PORT=3000
       ports: 
