@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels: 
-      component: api-gateway
+      app: api-gateway
   template:
     metadata:
       labels:
-        component: api-gateway
+        app: api-gateway
     spec:
       containers:
       - name: api-gateway
