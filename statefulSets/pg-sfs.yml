@@ -8,12 +8,14 @@ spec:
   podManagementPolicy: OrderedReady
   replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
+    
       component: postgres
   serviceName: postgres
   template:
     metadata:
       labels:
+        app: postgres-db
         component: postgres
     spec:
       volumes:
