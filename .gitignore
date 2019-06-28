@@ -4,3 +4,4 @@ services/
 resources/
 keypair/
 test-pods
+helperScript.sh
