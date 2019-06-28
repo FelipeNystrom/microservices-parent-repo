@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: post-service
-        image: shakka/post-service
+        image: post-service
+        imagePullPolicy: IfNotPresent
         env:
           - name: PORT
             value: '3000'
