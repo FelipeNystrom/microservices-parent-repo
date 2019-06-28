@@ -15,6 +15,6 @@ You can find the diffrent implementations in diffrent branches _as of now it con
 
 ### TODO:
 
-- [ ] Migrate to Kubernetes
+- [x] Migrate to Kubernetes - see [Kubernetes branch](https://github.com/FelipeNystrom/microservices-parent-repo/tree/kubernetes)
 - [ ] Monitor service with heartbeat checks on every service.
 - [ ] Wait-for db and kafka complete startup functionality
