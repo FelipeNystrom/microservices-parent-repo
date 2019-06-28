@@ -2,14 +2,14 @@
 
 This is the parent repo for a small microservice project. It consists of four small services written in Nodejs.
 
-- [api gateway service](https://github.com/FelipeNystrom/api-gateway)
+- [api gateway service](https://github.com/FelipeNystrom/kubernetes-api-gateway)
 - [user and authentication service](https://github.com/FelipeNystrom/auth-user-sevice)
 - [post service](https://github.com/FelipeNystrom/post-service)
 - [image upload service](https://github.com/FelipeNystrom/image-and-video-API)
 
 ## Kubernetes migration
 
-**_Notice that this is a test setup for minikube_**
+**_Notice that this is a test setup only tested in minikube_**
 
 The whole system consists of a postgres db service, for interservice communication a kafka messagebus service together with zookeeper for orchestration of future kafka instances is in place.
 
