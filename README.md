@@ -2,7 +2,7 @@
 
 This is the parent repo for a small microservice project. It consists of four small services written in Nodejs.
 
-- [api gateway service](https://github.com/FelipeNystrom/api-gateway)
+- api gateway service [docker-compose version](https://github.com/FelipeNystrom/api-gateway), [kubernetes version](https://github.com/FelipeNystrom/kubernetes-api-gateway)
 - [user and authentication service](https://github.com/FelipeNystrom/auth-user-sevice)
 - [post service](https://github.com/FelipeNystrom/post-service)
 - [image upload service](https://github.com/FelipeNystrom/image-and-video-API)
