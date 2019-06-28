@@ -24,6 +24,9 @@ spec:
        env:
          - name: PORT
            value: '3000'
+       # Override start command for enabling of debugging
+       command: ['node']
+       args: ['--inspect', 'server.js']
        resources:
          requests:
            memory: "500Mi"

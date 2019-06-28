@@ -25,6 +25,9 @@ spec:
               secretKeyRef:
                 name: db-secrets
                 key: database_url
+        # Override start command for enabling of debugging
+        command: ['node']
+        args: ['--inspect', 'server.js']
         resources:
           requests:
             memory: "100Mi"
