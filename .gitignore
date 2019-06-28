@@ -5,3 +5,4 @@ keypair/
 docker-compose.yml
 resources/secrets/
 test-pods/
+helperScript.sh

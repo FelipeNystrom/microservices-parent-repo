@@ -2,9 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: upload-service
+  labels:
+    serviceRoute: upload
+    serviceName: upload-service
 spec:
   selector:
-    app: upload
+    component: upload
   ports:
   - port: 3000
     targetPort: upload-port

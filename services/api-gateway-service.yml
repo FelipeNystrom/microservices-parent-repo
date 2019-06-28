@@ -4,7 +4,7 @@ metadata:
   name: gateway-service
 spec:
   selector:
-    app: api-gateway
+    component: api-gateway
   ports:
   - port: 3001
     targetPort: gateway-port

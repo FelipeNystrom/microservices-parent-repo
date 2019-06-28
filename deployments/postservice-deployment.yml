@@ -4,8 +4,6 @@ metadata:
   name: post-deployment
   labels:
     app: post-deployment
-    serviceRoute: post
-    serviceName: post-service
 spec:
   replicas: 1
   selector:
@@ -15,15 +13,13 @@ spec:
     metadata:
       labels:
         component: post
-        serviceRoute: post
-        serviceName: post-service
     spec:
       containers:
       - name: post-service
         image: shakka/post-service
         env:
           - name: PORT
-            value: '3001'
+            value: '3000'
           - name: DATABASE_URL
             valueFrom:
               secretKeyRef:
@@ -38,6 +34,6 @@ spec:
             cpu: "300m"
         ports:
           - name: post-port 
-            containerPort: 3001
+            containerPort: 3000
 
  

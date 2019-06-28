@@ -4,8 +4,6 @@ metadata:
   name: auth-deployment
   labels:
     app: auth-deployment
-    serviceRoute: auth
-    serviceName: auth-service
 spec:
   replicas: 1
   selector:
@@ -14,21 +12,28 @@ spec:
   template:
     metadata:
       labels:
-        component: auth
-        serviceRoute: auth
-        serviceName: auth-service
+        component: auth        
     spec:
       containers:
       - name: auth-service
-        image: shakka/auth-user-service
+        image: auth-user-service
+        imagePullPolicy: IfNotPresent
         env:
           - name: PORT
-            value: '3001'
+            value: '3000'
           - name: DB_URL
             valueFrom:
               secretKeyRef:
                 name: db-secrets
                 key: db-url
+          - name: PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: key-secrets
+                key: private
+        # Override start command for enabling of debugging
+        command: ['node']
+        args: ['--inspect', 'server.js']
         resources:
           requests:
             memory: "100Mi"
@@ -38,6 +43,6 @@ spec:
             cpu: "300m"
         ports:
           - name: auth-port 
-            containerPort: 3001
+            containerPort: 3000
 
  

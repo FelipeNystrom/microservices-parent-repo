@@ -8,15 +8,16 @@ spec:
   replicas: 1
   selector:
     matchLabels: 
-      app: api-gateway
+      component: api-gateway
   template:
     metadata:
       labels:
-        app: api-gateway
+        component: api-gateway
     spec:
       containers:
       - name: api-gateway
-        image: shakka/api-gateway
+        image: kubernetes-gateway
+        imagePullPolicy: IfNotPresent
         env:
           - name: PORT
             value: '3001'
@@ -32,6 +33,9 @@ spec:
           requests:
             memory: "128Mi"
             cpu: "100m"
+        # Override start command for enabling of debugging
+        # command: ['node']
+        # args: ['--inspect', 'server.js']
         ports:
           - name: gateway-port 
             containerPort: 3001
