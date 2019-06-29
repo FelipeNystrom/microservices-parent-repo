@@ -9,12 +9,6 @@ This is the parent repo for a small microservice project. It consists of four sm
 
 Every service is containerized through docker. Except the four services mentioned above this system further consists of a postgres db and a kafka messagebus service for interservice communication togheter with zookeeper for orchestration of kafka brokers.
 
-You can find the diffrent implementations in diffrent branches _as of now it consists of a [kubernetes branch](https://github.com/FelipeNystrom/microservices-parent-repo/tree/kubernetes) and a [docker compose branch](https://github.com/FelipeNystrom/microservices-parent-repo/tree/docker-compose)_.
+You can find the diffrent implementations in diffrent repos _as of now it consists of a [kubernetes setup](https://github.com/FelipeNystrom/kubernetes-setup) and a [docker compose setup](https://github.com/FelipeNystrom/docker-compose-setup)_.
 
-**_This project is still under construction with the aim to make it production ready. Feel free to make a pull request_**
-
-### TODO:
-
-- [x] Migrate to Kubernetes - see [Kubernetes branch](https://github.com/FelipeNystrom/microservices-parent-repo/tree/kubernetes)
-- [ ] Monitor service with heartbeat checks on every service.
-- [ ] Wait-for db and kafka complete startup functionality
+**_This project is still under construction with the aim to make it production ready. Feel free to make a pull request in specific repo_**
